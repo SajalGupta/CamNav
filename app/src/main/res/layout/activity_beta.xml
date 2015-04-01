@@ -1,0 +1,75 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.example.sajal.intentexample.Beta"
+    android:background="#C0D6DF">
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar"
+        android:layout_alignParentTop="true"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/betaButton"
+        android:id="@+id/button2"
+        android:onClick="onClickBeta"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="63dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/betaTextIntentData"
+        android:id="@+id/betaText"
+        android:gravity="center_horizontal"
+
+        android:layout_below="@+id/app_bar"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/betaStartLocationLatString"
+        android:id="@+id/BetaStartLocationLat"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/betaText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/betaStartlocationlongString"
+        android:id="@+id/BetaStartLocationLong"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/BetaStartLocationLat"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/beta_provider"
+        android:id="@+id/betaProvider"
+        android:layout_alignParentStart="false"
+        android:layout_below="@+id/BetaStartLocationLong"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/getPlacesString2"
+        android:id="@+id/placesButton"
+        android:layout_alignParentEnd="false"
+        android:onClick="onClickPlaces"
+        android:layout_above="@+id/button2"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
