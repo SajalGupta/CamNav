@@ -3,8 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/drawer_layout">
+    android:id="@+id/drawer_layout"
+    >
     <RelativeLayout
+        android:fitsSystemWindows="false"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#C0D6DF"
@@ -93,6 +95,7 @@
 
     </RelativeLayout>
     <fragment
+        android:fitsSystemWindows="true"
         android:id="@+id/fragment_drawer"
         android:layout_width="320dp"
         android:layout_height="match_parent"

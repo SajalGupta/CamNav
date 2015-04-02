@@ -5,6 +5,10 @@
         <item name="android:colorPrimary">#3F51B5</item>
         <item name="android:colorPrimaryDark">#303F9F</item>
         <item name="android:colorAccent">#4D5061</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+
     </style>
 
 </resources>

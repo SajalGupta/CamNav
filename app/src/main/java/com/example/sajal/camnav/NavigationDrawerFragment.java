@@ -45,7 +45,9 @@ public class NavigationDrawerFragment extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
+        rootView.setFitsSystemWindows(true);
+        return rootView;
     }
 
 
@@ -85,6 +87,7 @@ public class NavigationDrawerFragment extends android.support.v4.app.Fragment {
         if(!mUserLearnedDrawer && !mFromSavedInstanceState){
             mDrawerLayout.openDrawer(containerView);
         }
+        mDrawerLayout.setStatusBarBackgroundColor(getResources().getColor(R.color.primaryDark));
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerLayout.post(new Runnable() {
             @Override
@@ -92,6 +95,7 @@ public class NavigationDrawerFragment extends android.support.v4.app.Fragment {
                 mDrawerToggle.syncState();
             }
         });
+
     }
     public static void saveToPreferences(Context context,String preferenceString,String preferenceValue){
         SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_FILE_NAME,Context.MODE_PRIVATE);
