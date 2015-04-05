@@ -1,12 +1,14 @@
 package com.example.sajal.camnav;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,23 +16,43 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Alpha extends ActionBarActivity {
 
     String radioButtonChecked;
     private Toolbar toolbar;
+    private RecyclerView recyclerView;
+    private RecyclerViewAdapter adapter;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_alpha);
+        recyclerView = (RecyclerView)findViewById(R.id.mDrawerList);
+        recyclerView.setHasFixedSize(true);
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(mLayoutManager);
+        List<RecylerViewData> data = getData();
+        adapter = new RecyclerViewAdapter(data);
+        recyclerView.setAdapter(adapter);
+
+
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
+
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         DrawerLayout drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         drawerLayout.setStatusBarBackgroundColor(getResources().getColor(R.color.primaryDark));
         NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment)getSupportFragmentManager().findFragmentById(R.id.fragment_drawer);
         drawerFragment.setUp(R.id.fragment_drawer,(DrawerLayout)findViewById(R.id.drawer_layout),toolbar);
+
+
 
 
 
@@ -102,4 +124,21 @@ public class Alpha extends ActionBarActivity {
         }
 
     }
+    public static List<RecylerViewData> getData(){
+        Log.i("getData","Get data was called");
+        List<RecylerViewData> data = new ArrayList<>();
+        int[] icons = {R.mipmap.ic_subway,R.mipmap.ic_taxi,R.mipmap.ic_bus};
+        String[] titles = {"Metro Station","Taxi Stand","Bus Stop"};
+        for(int i=0;i<titles.length && i<icons.length;i++){
+            RecylerViewData current = new RecylerViewData();
+            current.iconId=icons[i];
+            current.title=titles[i];
+            data.add(current);
+            Log.i("Data : ",current.title);
+        }
+        return data;
+
+    }
+
+
 }

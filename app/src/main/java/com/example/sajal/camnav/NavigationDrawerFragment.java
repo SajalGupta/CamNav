@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +25,7 @@ public class NavigationDrawerFragment extends android.support.v4.app.Fragment {
     private Boolean mFromSavedInstanceState=false;
     public static final String PREF_FILE_NAME = "testpref";
     public static final String KEY_USER_LEARNED_DRAWER = "user_learned_drawer";
+    private RecyclerView recyclerView;
 
 
 
@@ -46,13 +48,15 @@ public class NavigationDrawerFragment extends android.support.v4.app.Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
+
         rootView.setFitsSystemWindows(true);
+
         return rootView;
     }
 
 
     public void setUp(int fragmentID, DrawerLayout drawerLayout, final Toolbar toolbar) {
-        View containerView = getActivity().findViewById(fragmentID);
+        View containerView = getActivity().findViewById(fragmentID);    
         mDrawerLayout=drawerLayout;
         mDrawerToggle=new ActionBarDrawerToggle(getActivity(),drawerLayout,toolbar,R.string.drawer_open,R.string.drawer_close){
 

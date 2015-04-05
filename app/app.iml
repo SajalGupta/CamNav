@@ -112,6 +112,7 @@
     <orderEntry type="library" exported="" name="google-api-client-appengine-1.18.0-rc" level="project" />
     <orderEntry type="library" exported="" name="google-http-client-1.18.0-rc" level="project" />
     <orderEntry type="library" exported="" name="google-http-client-jdo-1.18.0-rc" level="project" />
+    <orderEntry type="library" exported="" name="recyclerview-v7-21.0.3" level="project" />
     <orderEntry type="library" exported="" name="google-oauth-client-servlet-1.18.0-rc" level="project" />
     <orderEntry type="library" exported="" name="jetty-6.1.26" level="project" />
     <orderEntry type="library" exported="" name="google-http-client-jackson2-1.18.0-rc" level="project" />

@@ -1,17 +1,36 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.sajal.camnav.NavigationDrawerFragment"
-    android:background="#ffee8b19">
+    android:background="#ffee8b19"
+    tools:context="com.example.sajal.camnav.NavigationDrawerFragment">
 
     <!-- TODO: Update blank fragment layout -->
-
-
-    <ImageView
-        android:layout_width="320dp"
+    <LinearLayout
+        android:id="@+id/FragmentLinearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:layout_marginTop="24dp"
+        android:background="#ffee8b19"
+        android:orientation="horizontal">
 
-        android:src="@mipmap/frag" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="320dp"
+            android:layout_height="140dp"
+
+            android:layout_marginBottom="16dp"
+            android:src="@mipmap/frag" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/TheOneBelowThat"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/FragmentLinearLayout"
+        android:background="#DADADA"
+        android:orientation="horizontal">
+
+
+
+    </LinearLayout>
 </RelativeLayout>
