@@ -117,18 +117,6 @@ public class Beta extends ActionBarActivity {
 
     }
 
-    public void onClickBeta(View view) {
-
-        Context context = getApplicationContext();
-        Toast toast = Toast.makeText(context,"To be added soon",Toast.LENGTH_SHORT);
-        toast.show();
-
-        Intent i = new Intent(this,MapsActivity.class);
-
-        startActivity(i);
-    }
-
-
     BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {

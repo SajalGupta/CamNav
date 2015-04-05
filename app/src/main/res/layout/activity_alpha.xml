@@ -33,6 +33,7 @@
         <android.support.v7.widget.RecyclerView
             android:layout_below="@id/textView"
             android:layout_marginTop="20dp"
+            android:overScrollMode="never"
             android:id="@+id/mDrawerList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

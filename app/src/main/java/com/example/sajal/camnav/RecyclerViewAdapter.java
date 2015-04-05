@@ -17,7 +17,11 @@ import java.util.List;
  */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
     List<RecylerViewData> data ;
+    private ClickListener clickListener;
 
+    public void setClickListener(ClickListener clickListener) {
+        this.clickListener = clickListener;
+    }
 
     public RecyclerViewAdapter(List<RecylerViewData> data) {
 
@@ -64,6 +68,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public void onClick(View v) {
             v.setSelected(true);
             Toast.makeText(v.getContext(),"Item Clicked"+title.getText(),Toast.LENGTH_SHORT).show();
+            if(clickListener!=null){
+                clickListener.itemClicked(v,getPosition(),data);
+            }
         }
+    }
+    public interface ClickListener{
+        public void itemClicked(View view,int position,List<RecylerViewData> data);
     }
 }

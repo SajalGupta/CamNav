@@ -11,15 +11,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/betaButton"
-        android:id="@+id/button2"
-        android:onClick="onClickBeta"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="63dp" />
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -30,7 +22,8 @@
         android:gravity="center_horizontal"
 
         android:layout_below="@+id/app_bar"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
 
     <TextView
         android:layout_width="300dp"
@@ -68,8 +61,7 @@
         android:layout_height="wrap_content"
         android:text="@string/getPlacesString2"
         android:id="@+id/placesButton"
-        android:layout_alignParentEnd="false"
         android:onClick="onClickPlaces"
-        android:layout_above="@+id/button2"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

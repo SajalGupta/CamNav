@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Alpha extends ActionBarActivity {
+public class Alpha extends ActionBarActivity implements RecyclerViewAdapter.ClickListener{
 
     String radioButtonChecked;
     private Toolbar toolbar;
@@ -40,8 +40,12 @@ public class Alpha extends ActionBarActivity {
         recyclerView.setLayoutManager(mLayoutManager);
         List<RecylerViewData> data = getData();
         adapter = new RecyclerViewAdapter(data);
+        adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
-
+        recyclerView.addItemDecoration(new SimpleDividerItemDecoration(
+                getApplicationContext()
+        ));
+        recyclerView.setScrollContainer(false);
 
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
@@ -141,4 +145,10 @@ public class Alpha extends ActionBarActivity {
     }
 
 
+    @Override
+    public void itemClicked(View view, int position,List<RecylerViewData> data) {
+        Intent i = new Intent(this, Beta.class);
+        i.putExtra("radioButton",data.get(position).title);
+        startActivity(i);
+    }
 }

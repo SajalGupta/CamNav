@@ -5,6 +5,7 @@
     android:id="@+id/customRow"
     android:background="@drawable/custom_bg"
     android:clickable="true"
+
     >
 
     <ImageView
@@ -24,6 +25,7 @@
         android:layout_gravity="center"
         android:gravity="center_vertical"
         />
+
 
 
 </LinearLayout>
