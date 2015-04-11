@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="com.example.sajal.intentexample.Gamma">
+    tools:context="com.example.sajal.intentexample.Gamma"
+    android:background="#C0D6DF">
 
     <include
         android:id="@+id/app_bar"

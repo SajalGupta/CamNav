@@ -1,5 +1,10 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<RelativeLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
 
     tools:context="com.example.sajal.intentexample.Beta"
@@ -11,57 +16,79 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
 
+    <android.support.v7.widget.CardView
+
+        android:layout_below="@id/app_bar"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        card_view:cardCornerRadius="4dp"
+        android:layout_margin="8dp"
+        android:animateLayoutChanges="true"
+        >
+
+        <TextView
+            android:id="@+id/cardTextFirst"
+            android:elevation="2dp"
+            android:background="@drawable/myrect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/betaCardTextUserLocation"
+            android:textColor="@android:color/primary_text_light"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:textSize="18dp"/>
+        <TextView
+            android:id="@+id/PlaceOfInterestText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="zz"
+            android:textColor="@android:color/primary_text_light"
+            android:layout_gravity="center"
+
+            />
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/betaTextIntentData"
-        android:id="@+id/betaText"
-        android:gravity="center_horizontal"
 
-        android:layout_below="@+id/app_bar"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp" />
 
-    <TextView
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/betaStartLocationLatString"
-        android:id="@+id/BetaStartLocationLat"
-        android:gravity="center_horizontal"
-        android:layout_below="@+id/betaText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp" />
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
 
-    <TextView
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/betaStartlocationlongString"
-        android:id="@+id/BetaStartLocationLong"
-        android:gravity="center_horizontal"
-        android:layout_below="@+id/BetaStartLocationLat"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@id/card_view"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/betaSecondCard"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        card_view:cardCornerRadius="4dp"
+        android:layout_margin="8dp"
+        >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/beta_provider"
-        android:id="@+id/betaProvider"
-        android:layout_alignParentStart="false"
-        android:layout_below="@+id/BetaStartLocationLong"
-        android:layout_centerHorizontal="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/getPlacesString2"
-        android:id="@+id/placesButton"
-        android:onClick="onClickPlaces"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+    <fragment
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:id="@+id/map_beta_activity"
+        android:layout_height="match_parent"
+        tools:context="com.example.sajal.intentexample.MapsActivity"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/placesButton"
+        android:layout_below="@id/card_view"
+       android:layout_margin="8dp"/>
+    </android.support.v7.widget.CardView>
+
+
+
 </RelativeLayout>
+    <fragment
+        android:id="@+id/fragment_drawer"
+        android:name="com.example.sajal.camnav.NavigationDrawerFragment"
+        android:layout_width="320dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:layout="@layout/fragment_navigation_drawer"
+        tools:layout="@layout/fragment_navigation_drawer" />
+</android.support.v4.widget.DrawerLayout>

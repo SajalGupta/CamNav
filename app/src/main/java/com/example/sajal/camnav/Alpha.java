@@ -1,10 +1,8 @@
 package com.example.sajal.camnav;
 
-import android.content.Context;
 import android.content.Intent;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -12,9 +10,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +17,7 @@ import java.util.List;
 
 public class Alpha extends ActionBarActivity implements RecyclerViewAdapter.ClickListener{
 
-    String radioButtonChecked;
+    //String radioButtonChecked;
     private Toolbar toolbar;
     private RecyclerView recyclerView;
     private RecyclerViewAdapter adapter;
@@ -51,10 +46,7 @@ public class Alpha extends ActionBarActivity implements RecyclerViewAdapter.Clic
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        DrawerLayout drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
-        drawerLayout.setStatusBarBackgroundColor(getResources().getColor(R.color.primaryDark));
-        NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment)getSupportFragmentManager().findFragmentById(R.id.fragment_drawer);
-        drawerFragment.setUp(R.id.fragment_drawer,(DrawerLayout)findViewById(R.id.drawer_layout),toolbar);
+
 
 
 
@@ -85,7 +77,7 @@ public class Alpha extends ActionBarActivity implements RecyclerViewAdapter.Clic
         return super.onOptionsItemSelected(item);
     }
 
-    public void onClick(View view) {
+   /* public void onClick(View view) {
         Intent i = new Intent(this, Beta.class);
         EditText userName = (EditText) findViewById(R.id.enterNameText);
         EditText contactNum = (EditText) findViewById(R.id.editNumberText);
@@ -97,9 +89,9 @@ public class Alpha extends ActionBarActivity implements RecyclerViewAdapter.Clic
         startActivity(i);
 
 
-    }
+    } */
 
-    public void onRadioButtonClicked(View view) {
+   /* public void onRadioButtonClicked(View view) {
         RadioButton radioButton = (RadioButton) view;
         boolean checked = radioButton.isChecked();
         Context context = getApplicationContext();
@@ -127,7 +119,7 @@ public class Alpha extends ActionBarActivity implements RecyclerViewAdapter.Clic
                 break;
         }
 
-    }
+    } */
     public static List<RecylerViewData> getData(){
         Log.i("getData","Get data was called");
         List<RecylerViewData> data = new ArrayList<>();

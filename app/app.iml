@@ -92,6 +92,7 @@
     <orderEntry type="library" exported="" name="support-v4-21.0.3" level="project" />
     <orderEntry type="library" exported="" name="google-oauth-client-1.18.0-rc" level="project" />
     <orderEntry type="library" exported="" name="google-api-client-protobuf-1.18.0-rc" level="project" />
+    <orderEntry type="library" exported="" name="cardview-v7-21.0.3" level="project" />
     <orderEntry type="library" exported="" name="httpclient-4.0.1" level="project" />
     <orderEntry type="library" exported="" name="google-http-client-gson-1.18.0-rc" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-21.0.3" level="project" />
