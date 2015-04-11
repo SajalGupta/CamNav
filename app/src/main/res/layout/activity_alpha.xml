@@ -4,6 +4,7 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
+        android:id="@+id/AlphaRelative"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#C0D6DF"
@@ -39,6 +40,25 @@
 
 
         </android.support.v7.widget.RecyclerView>
+
+        <SeekBar
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBar"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="50dp"
+            android:max="2000"
+            android:visibility="visible" />
+        <TextView
+            android:id="@+id/seekBarText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/accentColor"
+            android:layout_above="@id/seekBar"
+            android:layout_marginBottom="10dp"
+            android:layout_centerHorizontal="true"/>
+        
 
     </RelativeLayout>
 

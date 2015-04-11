@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +23,8 @@ public class Alpha extends ActionBarActivity implements RecyclerViewAdapter.Clic
     private Toolbar toolbar;
     private RecyclerView recyclerView;
     private RecyclerViewAdapter adapter;
-
+    TextView seekBarText;
+    SeekBar seekBar;
 
 
     @Override
@@ -34,7 +37,7 @@ public class Alpha extends ActionBarActivity implements RecyclerViewAdapter.Clic
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(mLayoutManager);
         List<RecylerViewData> data = getData();
-        adapter = new RecyclerViewAdapter(data);
+        adapter = new RecyclerViewAdapter(this,data);
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new SimpleDividerItemDecoration(
@@ -46,7 +49,26 @@ public class Alpha extends ActionBarActivity implements RecyclerViewAdapter.Clic
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        seekBar = (SeekBar) findViewById(R.id.seekBar);
+        seekBarText = (TextView) findViewById(R.id.seekBarText);
+        seekBarText.setText("I can walk " + seekBar.getProgress() + " meters");
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                seekBarText.setText("I can walk " + seekBar.getProgress() + " meters");
 
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
 
 
 
@@ -141,6 +163,7 @@ public class Alpha extends ActionBarActivity implements RecyclerViewAdapter.Clic
     public void itemClicked(View view, int position,List<RecylerViewData> data) {
         Intent i = new Intent(this, Beta.class);
         i.putExtra("radioButton",data.get(position).title);
+        i.putExtra("walk_radius",seekBar.getProgress()+"");
         startActivity(i);
     }
 }

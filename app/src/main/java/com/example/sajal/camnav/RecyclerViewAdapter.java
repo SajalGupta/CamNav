@@ -1,31 +1,38 @@
 package com.example.sajal.camnav;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.graphics.Point;
 import android.support.v7.widget.RecyclerView;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Collections;
 import java.util.List;
 
-/**
- * Created by Sajal on 05-04-2015.
- */
+
+
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
     List<RecylerViewData> data ;
+    Context context;
+
     private ClickListener clickListener;
 
     public void setClickListener(ClickListener clickListener) {
         this.clickListener = clickListener;
     }
 
-    public RecyclerViewAdapter(List<RecylerViewData> data) {
+    public RecyclerViewAdapter(Context context,List<RecylerViewData> data) {
 
         this.data=data;
+        this.context=context;
     }
 
     @Override
@@ -33,8 +40,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
        // View view = inflater.inflate(R.layout.custom_row,viewGroup,false);
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.custom_row,viewGroup,false);
 
-        MyViewHolder holder = new MyViewHolder(view);
-        return holder;
+
+        return new MyViewHolder(view);
     }
 
     @Override
@@ -42,6 +49,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         RecylerViewData current = data.get(i);
         myViewHolder.title.setText(current.title);
         myViewHolder.icon.setImageResource(current.iconId);
+
 
 
     }
@@ -61,6 +69,20 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             itemView.setOnClickListener(this);
             title=(TextView)itemView.findViewById(R.id.listText);
             icon=(ImageView)itemView.findViewById(R.id.listIcon);
+            WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+            Display display = wm.getDefaultDisplay();
+            Point size = new Point();
+            display.getSize(size);
+            int width = size.x;
+           // int height = size.y;
+            ObjectAnimator moveAnim = ObjectAnimator.ofFloat(itemView,"x",width,0);
+            ObjectAnimator fadeAnim = ObjectAnimator.ofFloat(itemView, "alpha", 0, 1);
+            AnimatorSet movFadeAnim = new AnimatorSet();
+            movFadeAnim.playTogether(moveAnim,fadeAnim);
+            movFadeAnim.setDuration(1000);
+            moveAnim.setInterpolator(new LinearInterpolator());
+            movFadeAnim.start();
+
 
         }
 

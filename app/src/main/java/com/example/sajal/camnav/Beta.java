@@ -49,6 +49,7 @@ public class Beta extends ActionBarActivity {
     private Toolbar toolbar;
     private GoogleMap mMap;
     CardView myCard;
+    int walkRadius;
 
 
 
@@ -77,7 +78,9 @@ public class Beta extends ActionBarActivity {
             return;
         }
 
-        //String userName = AlphaData.getString("userName");
+        String walk_radius = AlphaData.getString("walk_radius");
+        walkRadius = Integer.parseInt(walk_radius);
+        Log.i("walkRadInt",walkRadius+"");
        // String contactNum = AlphaData.getString("contactNum");
         radioButton = AlphaData.getString("radioButton");
         TextView betaText = (TextView) findViewById(R.id.PlaceOfInterestText);
@@ -118,7 +121,7 @@ public class Beta extends ActionBarActivity {
     protected void onPause() {
 
 
-
+        i[0]=0;
         super.onPause();
         unregisterReceiver(receiver);
         Intent i= new Intent(getApplicationContext(), GetLocationService.class);
@@ -156,7 +159,7 @@ public class Beta extends ActionBarActivity {
                 if(radioButton.equals("Taxi Stand")){
                     searchType="taxi_stand";
                 }
-                String intermediateURL = "&radius=500&types=" + searchType + "&key=AIzaSyCxlMg0r_bb0R07g6D0lB2dBT9lijsTB-0";
+                String intermediateURL = "&radius="+walkRadius+"&types=" + searchType + "&key=AIzaSyCxlMg0r_bb0R07g6D0lB2dBT9lijsTB-0";
                 String baseURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=";
                 String finalURL = baseURL + locationParameters + intermediateURL;
 
@@ -250,7 +253,7 @@ public class Beta extends ActionBarActivity {
     protected void onDestroy() {
 
             super.onDestroy();
-        unregisterReceiver(receiver);
+        i[0]=0;
         Intent i= new Intent(getApplicationContext(), GetLocationService.class);
         getApplicationContext().stopService(i);
     }
