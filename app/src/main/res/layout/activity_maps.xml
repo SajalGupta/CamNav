@@ -14,14 +14,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/getRouteString"
-        android:id="@+id/mapButton"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="onClickGetRoutes"/>
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -37,9 +30,10 @@
         android:layout_height="wrap_content"
         android:text="@string/cameraButtonNavigateString"
         android:id="@+id/cameraButton"
-        android:layout_above="@+id/mapButton"
-        android:layout_centerHorizontal="true"
-        android:onClick="openCamera"/>
+
+        android:onClick="openCamera"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
 
 

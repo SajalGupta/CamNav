@@ -5,4 +5,5 @@ package com.example.sajal.camnav;
  */
 public class Globals {
     public static MyDataSource dataSource = new MyDataSource();
+    public static int mWalkRadius=1;
 }

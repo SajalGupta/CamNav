@@ -1,6 +1,5 @@
 package com.example.sajal.camnav;
 
-import android.annotation.SuppressLint;
 import android.app.Service;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -8,14 +7,11 @@ import android.os.Binder;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
-import android.os.Message;
 import android.util.Log;
 
 import com.google.android.gms.maps.model.LatLng;
-
-import com.google.api.client.util.Key;
 import com.google.maps.android.PolyUtil;
-import com.google.android.gms.maps.model.LatLng;
+
 import java.util.List;
 
 public class DirectionFetcher extends Service {

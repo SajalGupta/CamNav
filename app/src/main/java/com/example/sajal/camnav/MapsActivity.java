@@ -135,6 +135,9 @@ public class MapsActivity extends FragmentActivity {
             Bundle extra = intent.getExtras();
             Location loc = (Location) extra.get("Location");
             putMeOnThatMap(loc);
+            if(DirectionFetcher.latLngs!=null){
+                onClickGetRoutes();
+            }
 
 
 
@@ -200,7 +203,7 @@ public class MapsActivity extends FragmentActivity {
 //        unregisterReceiver(receiver);
     }
 
-    public void onClickGetRoutes(View view) {
+    public void onClickGetRoutes() {
 
         if(myDirectionFetcher.latLngs==null){
             Toast toast = Toast.makeText(this,"please wait while crap is being fetched",Toast.LENGTH_SHORT);

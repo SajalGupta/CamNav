@@ -27,6 +27,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -73,13 +74,14 @@ public class Beta extends ActionBarActivity {
         NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment)getSupportFragmentManager().findFragmentById(R.id.fragment_drawer);
         drawerFragment.setUp(R.id.fragment_drawer,(DrawerLayout)findViewById(R.id.drawer_layout),toolbar);
         myCard = (CardView)findViewById(R.id.card_view);
+
         Bundle AlphaData = getIntent().getExtras();
         if (AlphaData == null) {
             return;
         }
 
-        String walk_radius = AlphaData.getString("walk_radius");
-        walkRadius = Integer.parseInt(walk_radius);
+
+        walkRadius = AlphaData.getInt("walk_radius");
         Log.i("walkRadInt",walkRadius+"");
        // String contactNum = AlphaData.getString("contactNum");
         radioButton = AlphaData.getString("radioButton");
@@ -159,6 +161,10 @@ public class Beta extends ActionBarActivity {
                 if(radioButton.equals("Taxi Stand")){
                     searchType="taxi_stand";
                 }
+                if(radioButton.equals("ATM")){
+                    searchType="atm";
+                }
+
                 String intermediateURL = "&radius="+walkRadius+"&types=" + searchType + "&key=AIzaSyCxlMg0r_bb0R07g6D0lB2dBT9lijsTB-0";
                 String baseURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=";
                 String finalURL = baseURL + locationParameters + intermediateURL;
@@ -207,6 +213,10 @@ public class Beta extends ActionBarActivity {
                 names = obj.getNames();
                 globalStoreLatLng gs = (globalStoreLatLng) getApplication();
                 gs.setLatLnStore(latLnStore);
+                if(names.length==0){
+                    MyAlert myAlert = new MyAlert();
+                    myAlert.show(getFragmentManager(),"My Alert");
+                }
                 populateDrawer();
                 ObjectAnimator animX = ObjectAnimator.ofFloat(myCard, "x", 300f);
                 ObjectAnimator animAlpha = ObjectAnimator.ofFloat(myCard, "alpha", 0);
@@ -320,6 +330,7 @@ public class Beta extends ActionBarActivity {
 
         latLnStore= obj.getLatlnStore();
         names = obj.getNames();
+
         ListAdapter mAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1,names){
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
@@ -344,6 +355,7 @@ public class Beta extends ActionBarActivity {
                 }
         );
     }
+
 
 
 }

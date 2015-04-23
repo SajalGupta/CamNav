@@ -33,6 +33,14 @@
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
 
+    <string name="textview_text">SeekBarPreference test</string>
+
+    <string name="menu_settings">Settings</string>
+    <string name="settings_dialog_message">Set your preferred walking radius</string>
+    <string name="settings_summary">Current value is $1</string>
+    <string name="settings_unit">Km</string>
+    <string name="settings_title">Walking Radius</string>
+
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="betaCardTextUserLocation">There you are on the map</string>
