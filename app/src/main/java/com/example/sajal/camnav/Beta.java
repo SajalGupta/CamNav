@@ -8,6 +8,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.Shader;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.Handler;
@@ -74,7 +76,7 @@ public class Beta extends ActionBarActivity {
         NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment)getSupportFragmentManager().findFragmentById(R.id.fragment_drawer);
         drawerFragment.setUp(R.id.fragment_drawer,(DrawerLayout)findViewById(R.id.drawer_layout),toolbar);
         myCard = (CardView)findViewById(R.id.card_view);
-
+        TextView cardTextFirst = (TextView) findViewById(R.id.cardTextFirst);
         Bundle AlphaData = getIntent().getExtras();
         if (AlphaData == null) {
             return;
@@ -88,7 +90,7 @@ public class Beta extends ActionBarActivity {
         TextView betaText = (TextView) findViewById(R.id.PlaceOfInterestText);
         if(radioButton.equals("Taxi Stand")){
             Log.i("taxiImage","Setting Image");
-            TextView cardTextFirst = (TextView) findViewById(R.id.cardTextFirst);
+
             cardTextFirst.setText("Fetching the nearest "+radioButton+"s");
             ImageView chosenImage = (ImageView)findViewById(R.id.chosenImage);
             chosenImage.setImageResource(R.drawable.bannertdms);
@@ -97,7 +99,7 @@ public class Beta extends ActionBarActivity {
         }
         if(radioButton.equals("Bus Stop")){
             Log.i("taxiImage","Setting Image");
-            TextView cardTextFirst = (TextView) findViewById(R.id.cardTextFirst);
+
             cardTextFirst.setText("Fetching the nearest "+radioButton+"s");
             ImageView chosenImage = (ImageView)findViewById(R.id.chosenImage);
             chosenImage.setImageResource(R.drawable.rzhbusstop);
@@ -106,7 +108,7 @@ public class Beta extends ActionBarActivity {
         }
         if(radioButton.equals("Metro Station")){
             Log.i("taxiImage","Setting Image");
-            TextView cardTextFirst = (TextView) findViewById(R.id.cardTextFirst);
+
             cardTextFirst.setText("Fetching the nearest "+radioButton+"s");
             ImageView chosenImage = (ImageView)findViewById(R.id.chosenImage);
             chosenImage.setImageResource(R.drawable.delhimetroblueline);
@@ -115,7 +117,7 @@ public class Beta extends ActionBarActivity {
         }
         if(radioButton.equals("ATM")){
             Log.i("taxiImage","Setting Image");
-            TextView cardTextFirst = (TextView) findViewById(R.id.cardTextFirst);
+
             cardTextFirst.setText("Fetching the nearest "+radioButton+"s");
             ImageView chosenImage = (ImageView)findViewById(R.id.chosenImage);
             chosenImage.setImageResource(R.drawable.atmimage);
@@ -124,7 +126,7 @@ public class Beta extends ActionBarActivity {
         }
         if(radioButton.equals("Medicine Shop")){
             Log.i("taxiImage","Setting Image");
-            TextView cardTextFirst = (TextView) findViewById(R.id.cardTextFirst);
+
             cardTextFirst.setText("Fetching the nearest "+radioButton+"s");
             ImageView chosenImage = (ImageView)findViewById(R.id.chosenImage);
             chosenImage.setImageResource(R.drawable.asykespharmacypills);
