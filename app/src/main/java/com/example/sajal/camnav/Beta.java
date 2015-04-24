@@ -24,10 +24,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -86,7 +86,52 @@ public class Beta extends ActionBarActivity {
        // String contactNum = AlphaData.getString("contactNum");
         radioButton = AlphaData.getString("radioButton");
         TextView betaText = (TextView) findViewById(R.id.PlaceOfInterestText);
-        betaText.setText("Please wait while we fetch nearby "+radioButton+"s");
+        if(radioButton.equals("Taxi Stand")){
+            Log.i("taxiImage","Setting Image");
+            TextView cardTextFirst = (TextView) findViewById(R.id.cardTextFirst);
+            cardTextFirst.setText("Fetching the nearest "+radioButton+"s");
+            ImageView chosenImage = (ImageView)findViewById(R.id.chosenImage);
+            chosenImage.setImageResource(R.drawable.bannertdms);
+            chosenImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+        }
+        if(radioButton.equals("Bus Stop")){
+            Log.i("taxiImage","Setting Image");
+            TextView cardTextFirst = (TextView) findViewById(R.id.cardTextFirst);
+            cardTextFirst.setText("Fetching the nearest "+radioButton+"s");
+            ImageView chosenImage = (ImageView)findViewById(R.id.chosenImage);
+            chosenImage.setImageResource(R.drawable.rzhbusstop);
+            chosenImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+        }
+        if(radioButton.equals("Metro Station")){
+            Log.i("taxiImage","Setting Image");
+            TextView cardTextFirst = (TextView) findViewById(R.id.cardTextFirst);
+            cardTextFirst.setText("Fetching the nearest "+radioButton+"s");
+            ImageView chosenImage = (ImageView)findViewById(R.id.chosenImage);
+            chosenImage.setImageResource(R.drawable.delhimetroblueline);
+            chosenImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+        }
+        if(radioButton.equals("ATM")){
+            Log.i("taxiImage","Setting Image");
+            TextView cardTextFirst = (TextView) findViewById(R.id.cardTextFirst);
+            cardTextFirst.setText("Fetching the nearest "+radioButton+"s");
+            ImageView chosenImage = (ImageView)findViewById(R.id.chosenImage);
+            chosenImage.setImageResource(R.drawable.atmimage);
+            chosenImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+        }
+        if(radioButton.equals("Medicine Shop")){
+            Log.i("taxiImage","Setting Image");
+            TextView cardTextFirst = (TextView) findViewById(R.id.cardTextFirst);
+            cardTextFirst.setText("Fetching the nearest "+radioButton+"s");
+            ImageView chosenImage = (ImageView)findViewById(R.id.chosenImage);
+            chosenImage.setImageResource(R.drawable.asykespharmacypills);
+            chosenImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+        }
+        betaText.setVisibility(View.INVISIBLE);
         Intent i= new Intent(context, GetLocationService.class);
         i.putExtra("KEY1", "Value to be used by the service");
         Log.i(TAG,"Service about to start");
@@ -160,9 +205,14 @@ public class Beta extends ActionBarActivity {
                 }
                 if(radioButton.equals("Taxi Stand")){
                     searchType="taxi_stand";
+
+
                 }
                 if(radioButton.equals("ATM")){
                     searchType="atm";
+                }
+                if(radioButton.equals("Medicine Shop")){
+                    searchType="hospital";
                 }
 
                 String intermediateURL = "&radius="+walkRadius+"&types=" + searchType + "&key=AIzaSyCxlMg0r_bb0R07g6D0lB2dBT9lijsTB-0";
@@ -224,9 +274,12 @@ public class Beta extends ActionBarActivity {
                 animXAlpha.playTogether(animX,animAlpha);
                 animXAlpha.setDuration(500);
                 animXAlpha.start();
+                TextView betaText = (TextView) findViewById(R.id.PlaceOfInterestText);
+                betaText.setVisibility(View.VISIBLE);
                 animXAlpha.addListener(new Animator.AnimatorListener() {
                     @Override
                     public void onAnimationStart(Animator animation) {
+
 
                     }
 
